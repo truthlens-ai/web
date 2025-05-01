@@ -106,7 +106,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Project Creator - [Hiba Zohbi](mailto:truthlens.tools@gmail.com)
 
-Project Link: [https://github.com/yourusername/truthlens](https://github.com/yourusername/truthlens)
+Project Link: [https://github.com/yourusername/truthlens](https://truthlens-ai.github.io/web/)
 
 ## 🙏 Acknowledgements
 
