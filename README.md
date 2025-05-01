@@ -104,7 +104,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Project Creator - [Your Name](mailto:your.email@example.com)
+Project Creator - [Hiba Zohbi](mailto:your.email@example.com)
 
 Project Link: [https://github.com/yourusername/truthlens](https://github.com/yourusername/truthlens)
 
