@@ -272,12 +272,172 @@
             margin-top: 0.5rem;
         }
         
+        /* Chat UI Styles */
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .chat-messages {
+            height: 350px;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message {
+            max-width: 80%;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .message-bot {
+            background-color: var(--light);
+            border-bottom-left-radius: 0;
+            align-self: flex-start;
+        }
+        
+        .message-user {
+            background-color: var(--primary);
+            color: white;
+            border-bottom-right-radius: 0;
+            align-self: flex-end;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .chat-input button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .chat-input button:hover {
+            background-color: #2980b9;
+        }
+        
+        .chat-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .chat-option {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .chat-option:hover {
+            background-color: var(--light);
+            border-color: var(--primary);
+        }
+        
+        .file-preview {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: var(--light);
+            border-radius: 5px;
+        }
+        
+        .file-preview img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 1rem;
+            border-radius: 5px;
+        }
+        
+        .file-info {
+            flex-grow: 1;
+        }
+        
+        .file-name {
+            font-weight: 500;
+        }
+        
+        .file-remove {
+            color: var(--danger);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            padding: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .typing-indicator span {
+            height: 10px;
+            width: 10px;
+            margin: 0 2px;
+            background-color: #9e9ea1;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.3s linear infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
         .results {
             text-align: center;
             padding: 2rem;
             margin-top: 2rem;
             border-radius: 10px;
-            display: none;
         }
         
         .result-real {
@@ -378,6 +538,33 @@
             margin: 0 auto;
         }
         
+        /* File Upload Styles */
+        .upload-container {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .file-upload-btn {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 1rem;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-btn:hover {
+            background-color: #dbe1e3;
+        }
+        
+        .file-name-display {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -435,7 +622,7 @@
                 <ul class="nav-links">
                     <li><a href="#analyze">Analyze</a></li>
                     <li><a href="#tools">Tools</a></li>
-                    <li><a href="#test">Test Yourself</a></li>
+                    <li><a href="#truthbot">TruthBot</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
                 <div class="mobile-menu">
@@ -450,9 +637,8 @@
             <h1>Check if the news you read is real.</h1>
             <p>TruthLens helps you spot fake news, AI-generated content, and verify information before sharing it with the world.</p>
             <div class="hero-buttons">
-                <a href="#test" class="btn btn-primary"><i class="fas fa-file-alt"></i> Analyze Text</a>
-                <a href="#test" class="btn btn-primary"><i class="fas fa-image"></i> Verify Image/Video</a>
-                <a href="#test" class="btn btn-primary"><i class="fas fa-check-circle"></i> Check a Claim</a>
+                <a href="#truthbot" class="btn btn-primary"><i class="fas fa-robot"></i> Chat with TruthBot</a>
+                <a href="#tools" class="btn btn-outline"><i class="fas fa-tools"></i> Explore Verification Tools</a>
             </div>
         </div>
     </section>
@@ -460,7 +646,7 @@
     <section id="tools">
         <div class="container">
             <div class="section-title">
-                <h2>🧠 Tools We Use for Fake News Detection</h2>
+                <h2>Tools We Use for Fake News Detection</h2>
                 <p>Explore these powerful tools we use to help analyze content and identify potential misinformation.</p>
             </div>
             
@@ -516,66 +702,47 @@
         </div>
     </section>
 
-    <section class="test-yourself" id="test">
+    <section class="test-yourself" id="truthbot">
         <div class="container">
             <div class="section-title">
-                <h2>Analyze Content</h2>
-                <p>Select what you want to analyze and we'll use the best tool for the job.</p>
+                <h2>TruthBot</h2>
+                <p>Our AI-powered assistant can help you verify content and detect potential misinformation. Upload text, images, or links for analysis.</p>
             </div>
             
-            <div class="test-form">
-                <form id="analysis-form">
-                    <div class="form-group">
-                        <label for="content-type" class="form-label">What would you like to analyze?</label>
-                        <select id="content-type" class="form-select">
-                            <option value="text">Text Analysis</option>
-                            <option value="media-bias">Media Bias & Fact Check</option>
-                            <option value="social-media">Social Media Post Lookup</option>
-                            <option value="forensic-image">Forensic Image Analysis</option>
-                            <option value="reverse-image">Reverse Image Search</option>
-                            <option value="image-verification">Image Verification Assistant</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group" id="text-input-group">
-                        <label for="text-input" class="form-label">Paste the text here:</label>
-                        <textarea id="text-input" class="form-control" placeholder="Paste article, social media post, or any text you want to analyze..."></textarea>
-                    </div>
-                    
-                    <div class="form-group" id="url-input-group" style="display: none;">
-                        <label for="url-input" class="form-label">Enter the URL of the content:</label>
-                        <input type="url" id="url-input" class="form-control" placeholder="https://example.com/article">
-                    </div>
-                    
-                    <div class="form-group" id="social-input-group" style="display: none;">
-                        <label for="social-input" class="form-label">Enter social media post URL:</label>
-                        <input type="url" id="social-input" class="form-control" placeholder="https://twitter.com/username/status/123456789">
-                    </div>
-                    
-                    <div class="form-group" id="file-input-group" style="display: none;">
-                        <label for="file-input" class="form-label">Upload an image:</label>
-                        <input type="file" id="file-input" class="form-file" accept="image/*">
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-secondary">Analyze Now</button>
-                    </div>
-                </form>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i> TruthBot - Your Fact-Checking Assistant
+                </div>
                 
-                <div class="redirect-message" id="redirect-message" style="display: none; text-align: center; padding: 2rem; margin-top: 2rem; border-radius: 10px; background-color: rgba(52, 152, 219, 0.1); border: 1px solid var(--primary);">
-                    <h3 style="margin-bottom: 1rem;">Redirecting you to the best tool...</h3>
-                    <p id="redirect-explanation"></p>
-                    <div style="margin-top: 1.5rem;">
-                        <div class="loader" style="margin: 0 auto; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; width: 30px; height: 30px; animation: spin 2s linear infinite;"></div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message message-bot">
+                        👋 Hello! I'm TruthBot, your fact-checking assistant. Share any text, image, or link with me, and I'll help you verify if it's true or potentially misleading.
                     </div>
                 </div>
                 
-                <style>
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                </style>
+                <div id="file-preview-container" style="padding: 0 1rem; display: none;">
+                    <div class="file-preview">
+                        <img id="file-preview-image" src="" alt="Uploaded file">
+                        <div class="file-info">
+                            <div class="file-name" id="file-name">image.jpg</div>
+                            <div class="file-size" id="file-size">134 KB</div>
+                        </div>
+                        <div class="file-remove" onclick="removeFile()">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your message or paste a link...">
+                    <label for="file-upload" class="file-upload-btn">
+                        <i class="fas fa-paperclip"></i>
+                    </label>
+                    <input type="file" id="file-upload" style="display: none;" accept="image/*">
+                    <button id="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -612,7 +779,7 @@
                 </div>
                 
                 <div class="about-image">
-                    <img src="/api/placeholder/500/350" alt="TruthLens Project Team">
+                    <img src="TruthLens.jpg" alt="TruthLens Project Team">
                 </div>
             </div>
         </div>
@@ -646,86 +813,6 @@
             navLinks.classList.toggle('active');
         });
         
-        // Content type selection and input field display
-        const contentType = document.getElementById('content-type');
-        const textInputGroup = document.getElementById('text-input-group');
-        const urlInputGroup = document.getElementById('url-input-group');
-        const socialInputGroup = document.getElementById('social-input-group');
-        const fileInputGroup = document.getElementById('file-input-group');
-        
-        // Tool redirection URLs
-        const TOOL_URLS = {
-            'text': 'https://gptzero.me',
-            'media-bias': 'https://mediabiasfactcheck.com',
-            'social-media': 'https://whopostedwhat.com',
-            'forensic-image': 'https://fotoforensics.com',
-            'reverse-image': 'https://tineye.com',
-            'image-verification': 'https://mever.iti.gr'
-        };
-        
-        // Tool names for display
-        const TOOL_NAMES = {
-            'text': 'GPTZero',
-            'media-bias': 'Media Bias/Fact Check',
-            'social-media': 'Who Posted What',
-            'forensic-image': 'FotoForensics',
-            'reverse-image': 'TinEye',
-            'image-verification': 'MEVER'
-        };
-        
-        contentType.addEventListener('change', () => {
-            // Hide all input groups first
-            textInputGroup.style.display = 'none';
-            urlInputGroup.style.display = 'none';
-            socialInputGroup.style.display = 'none';
-            fileInputGroup.style.display = 'none';
-            
-            // Show appropriate input based on content type
-            switch(contentType.value) {
-                case 'text':
-                    textInputGroup.style.display = 'block';
-                    break;
-                case 'media-bias':
-                    urlInputGroup.style.display = 'block';
-                    break;
-                case 'social-media':
-                    socialInputGroup.style.display = 'block';
-                    break;
-                case 'forensic-image':
-                case 'reverse-image':
-                case 'image-verification':
-                    fileInputGroup.style.display = 'block';
-                    break;
-            }
-        });
-        
-        // Form submission
-        const analysisForm = document.getElementById('analysis-form');
-        const redirectMessage = document.getElementById('redirect-message');
-        const redirectExplanation = document.getElementById('redirect-explanation');
-        
-        analysisForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get the selected content type
-            const selectedType = contentType.value;
-            const toolName = TOOL_NAMES[selectedType];
-            const redirectUrl = TOOL_URLS[selectedType];
-            
-            // Hide form and show redirect message
-            analysisForm.style.display = 'none';
-            redirectMessage.style.display = 'block';
-            redirectExplanation.textContent = `We're redirecting you to ${toolName} for the best analysis of your content.`;
-            
-            // Scroll to redirect message
-            redirectMessage.scrollIntoView({ behavior: 'smooth' });
-            
-            // Simulate delay before redirect (you can remove this in production)
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 2000);
-        });
-        
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -739,6 +826,87 @@
                 navLinks.classList.remove('active');
             });
         });
-    </script>
-</body>
-</html>
+        
+        // TruthBot Chat Functionality
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const fileUpload = document.getElementById('file-upload');
+        const filePreviewContainer = document.getElementById('file-preview-container');
+        const filePreviewImage = document.getElementById('file-preview-image');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        
+        // OpenAI API Configuration
+        const OPENAI_API_KEY = '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'; // Replace with your actual API key
+        const API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
+        
+        let uploadedFile = null;
+        
+        // Add message to chat
+        function addMessage(message, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${isUser ? 'message-user' : 'message-bot'}`;
+            messageElement.textContent = message;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTypingIndicator() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator message-bot';
+            typingIndicator.id = 'typing-indicator';
+            
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('span');
+                typingIndicator.appendChild(dot);
+            }
+            
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        // Handle file upload
+        fileUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                uploadedFile = file;
+                
+                // Display file preview
+                filePreviewContainer.style.display = 'block';
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                
+                // Show image preview if it's an image
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        filePreviewImage.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    // Use a generic file icon for non-images
+                    filePreviewImage.src = '/api/placeholder/50/50';
+                }
+            }
+        });
+        
+        // Remove uploaded file
+        function removeFile() {
+            uploadedFile = null;
+            filePreviewContainer.style.display = 'none';
+            fileUpload.value = '';
+        }
+        
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes < 1024)
